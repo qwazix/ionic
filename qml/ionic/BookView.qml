@@ -20,6 +20,7 @@
  */
 
 import QtQuick 1.0
+import QtQuick 1.1
 import QtWebKit 1.0
 import com.nokia.meego 1.0
 import com.nokia.extras 1.0
@@ -243,6 +244,7 @@ Flickable {
     function setStyle(style) {
         styleCover.color = Theme.background(style)
         webView.evaluateJavaScript(Theme.webTheme(style))
+        webView.settings.defaultFontSize = 26 + (prefs.zoom - 100) / 10
     }
 
     // Load URL while covering the web view
@@ -257,5 +259,16 @@ Flickable {
         running: true
         repeat: true
         onTriggered: {if (!webView.loading) updateLastBookmark()}
+    }
+
+    PinchArea {
+        anchors.fill: parent
+        pinch.maximumScale: 2
+        pinch.minimumScale: 0.5
+        onPinchFinished: {
+            prefs.zoom = ((prefs.zoom - 100) * pinch.scale) + 100
+            webView.settings.defaultFontSize = 26 + (prefs.zoom - 100) / 10
+            //console.log(pinch.scale)
+        }
     }
 }

@@ -11,9 +11,9 @@ backgrounds.night = "#000009"
 backgrounds.sand = "#EDC9AF"
 
 var webThemes = new Object
-webThemes.day = "document.body.style.background = '#FFFFFB';document.body.style.color = '#000000'"
-webThemes.night = "document.body.style.background = '#000009';document.body.style.color = '#FFFFFF'"
-webThemes.sand = "document.body.style.background = '#EDC9AF';document.body.style.color = '#000000'"
+webThemes.day = "document.body.style.background = '#FFFFFB';document.body.style.color = '#000000';document.body.style.padding = '';document.body.style.margin = '';"
+webThemes.night = "document.body.style.background = '#000009';document.body.style.color = '#FFFFFF';document.body.style.padding = '0px';document.body.style.margin = '0px';"
+webThemes.sand = "document.body.style.background = '#EDC9AF';document.body.style.color = '#000000';document.body.style.padding = '';document.body.style.margin = '';"
 
 function background(style) {
     return backgrounds[style]

@@ -28,7 +28,7 @@ symbian:TARGET.CAPABILITY += NetworkServices
 
 QT += webkit xml sql network
 
-contains(MEEGO_EDITION,harmattan) { {
+contains(MEEGO_EDITION,harmattan) {
     DEFINES += unix
     DEFINES += USE_FILE32API
     CONFIG += link_pkgconfig
@@ -159,3 +159,7 @@ HEADERS += \
 RESOURCES += \
     ionic.qrc
 
+contains(MEEGO_EDITION,harmattan) {
+    target.path = /opt/ionic/bin
+    INSTALLS += target
+}
